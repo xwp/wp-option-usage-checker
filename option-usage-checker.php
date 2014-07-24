@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Option Usage Checker
- * Description: Make sure that options are less than 1MB when adding and updating them. This is specifically intended for when using an external object cache, like Memcached, where 1MB is the max bucket size (e.g. this is the case on WordPress.com). This ensures compatibility with Memcached's 1MB limit. Also make sure that all options are explicitly added before they are updated. Define Option_Usage_Checker_OBJECT_CACHE_BUCKET_MAX_SIZE (number of bytes) in wp-config.php to override the default of 1MB. Option usage violations will throw exceptions if WP_DEBUG is turned on by default; otherwise PHP warnings will be issued. Specific instances of update_option() for non-existent options can be whitelisted via the option_usage_checker_whitelisted filter; all core instnaces are whitelisted by default.
+ * Description: Check for perilous usages of add_option() and update_option(). Dev plugin, not recommended for production.
  * Version: 0.2
  * Author: X-Team WP
  * Author URI: http://x-team.com/wordpress/
