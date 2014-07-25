@@ -54,12 +54,23 @@ add_filter( 'option_value_max_size', function () {
 In Core there are instances of `update_option()` being called on non-existent options. To suppress warnings on such usages, when `update_option()` is called and would raise a warning, the plugin checks the callstack to see if it was called from Core (`wp-includes` or `wp-admin`), and if so the warning will be suppressed by default. You can override this behavior (or whitelist other plugins) with a filter:
 
 ```php
-add_filter( 'option_usage_checker_whitelisted', function ( $whitelisted, $callee, $callstack ) {
-	if ( preg_match( '/my-awesome-plugin/', $callee['file'] ) ) {
+add_filter( 'option_usage_checker_whitelisted', function ( $whitelisted, $context ) {
+	if ( preg_match( '/my-awesome-plugin/', $context['callee']['file'] ) ) {
 		$whitelisted = true;
 	}
 	return $whitelisted;
-} 10, 3 );
+}, 10, 2 );
+```
+
+If you only want to flag options that contain serialized data ([via @toscho](https://twitter.com/toscho/status/492456173019607042)):
+
+```php
+add_filter( 'option_usage_checker_whitelisted', function ( $whitelisted, $context ) {
+	if ( ! $whitelisted && is_scalar( $context['value'] ) ) {
+		$whitelisted = true;
+	}
+	return $whitelisted;
+}, 10, 2 );
 ```
 
 

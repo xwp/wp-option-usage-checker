@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Option Usage Checker
  * Description: Check for perilous usages of add_option() and update_option(). Dev plugin, not recommended for production. <a href="https://github.com/x-team/wp-option-usage-checker#readme">Read more</a>.
- * Version: 0.2
+ * Version: 0.3
  * Author: X-Team WP
  * Author URI: http://x-team.com/wordpress/
  * License: GPLv2+
@@ -78,9 +78,9 @@ class Option_Usage_Checker_Plugin {
 	 * @throws Option_Usage_Checker_Plugin_Exception
 	 * @return mixed
 	 */
-	function filter_pre_update_option( $value, $name ) {
+	function filter_pre_update_option( $value, $name ) { // yes, this param order is intentional, since this is a filter
 		$this->check_option_size( $name, $value );
-		if ( ! $this->option_exists( $name ) && ! $this->_is_update_option_call_whitelisted() ) {
+		if ( ! $this->option_exists( $name ) && ! $this->_is_update_option_call_whitelisted( $name, $value ) ) {
 			$this->handle_error( "Option '$name' does not exist. You must call add_option() before you can call update_option().'" );
 		}
 		return $value;
@@ -91,9 +91,11 @@ class Option_Usage_Checker_Plugin {
 	 * the add_option()-absent usage is whitelisted. Uses in Core are whitelisted
 	 * by default.
 	 *
+	 * @param string $name
+	 * @param mixed $value
 	 * @return bool
 	 */
-	protected function _is_update_option_call_whitelisted() {
+	protected function _is_update_option_call_whitelisted( $name, $value ) {
 		$whitelisted = false;
 
 		if ( version_compare( PHP_VERSION, '5.2.5', '>=' ) ) {
@@ -123,15 +125,21 @@ class Option_Usage_Checker_Plugin {
 		 * Calls done in Core are whitelisted by default.
 		 *
 		 * @param bool $whitelisted
-		 * @param array|null $callee
-		 * @param array $callstack
+		 * @param array $context {
+		 *     @var string $name Option name
+		 *     @var mixed $value Option value
+		 *     @var array|null $callee
+		 *     @var array $callstack
+		 * }
 		 */
-		$whitelisted = apply_filters( 'option_usage_checker_whitelisted', $whitelisted, $callee, $callstack );
+		$whitelisted = apply_filters( 'option_usage_checker_whitelisted', $whitelisted, compact( 'name', 'value', 'callee', 'callstack' ) );
 
 		return $whitelisted;
 	}
 
 	/**
+	 * Check if an option's value is too large.
+	 *
 	 * @param string $name option name
 	 * @param mixed $value pending option value
 	 *
@@ -168,6 +176,8 @@ class Option_Usage_Checker_Plugin {
 	}
 
 	/**
+	 * Handle an error.
+	 *
 	 * @param string $message
 	 * @throws Option_Usage_Checker_Plugin_Exception
 	 */
