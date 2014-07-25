@@ -3,7 +3,7 @@
 
 Check for perilous usages of add_option()/update_option(). Dev plugin, not recommended for production. Specifically useful with Memcached Object Cache
 
-**Contributors:** [x-team](http://profiles.wordpress.org/x-team)  
+**Contributors:** [x-team](http://profiles.wordpress.org/x-team), [westonruter](http://profiles.wordpress.org/westonruter)  
 **Tags:** [options](http://wordpress.org/plugins/tags/options), [transients](http://wordpress.org/plugins/tags/transients), [memcached](http://wordpress.org/plugins/tags/memcached), [object-cache](http://wordpress.org/plugins/tags/object-cache)  
 **Requires at least:** 3.9  
 **Tested up to:** trunk  
