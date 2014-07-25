@@ -199,4 +199,4 @@ class Option_Usage_Checker_Plugin {
 
 class Option_Usage_Checker_Plugin_Exception extends Exception {}
 
-add_action( 'muplugins_loaded', array( 'Option_Usage_Checker_Plugin', 'get_instance' ) );
+Option_Usage_Checker_Plugin::get_instance();
