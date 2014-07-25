@@ -10,6 +10,8 @@ Check for perilous usages of add_option()/update_option(). Dev plugin, not recom
 **Stable tag:** trunk (master)  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
+[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker)
+
 ## Description ##
 
 The WordPress Options API is used extensively as a key/value store. There are some pitfalls about how to use the API that are easy to fall into, especially when using the popular [Memcached Object Cache plugin](https://wordpress.org/plugins/memcached/).
@@ -50,8 +52,6 @@ add_filter( 'option_value_max_size', function () {
 } );
 ```
 
-
-[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker)
 ### Whitelisting update_option() calls ###
 In Core there are instances of `update_option()` being called on non-existent options. To suppress warnings on such usages, when `update_option()` is called and would raise a warning, the plugin checks the callstack to see if it was called from Core (`wp-includes` or `wp-admin`), and if so the warning will be suppressed by default. You can override this behavior (or whitelist other plugins) with a filter:
 
