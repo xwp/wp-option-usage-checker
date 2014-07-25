@@ -1,3 +1,0 @@
-[submodule "bin"]
-	path = bin
-	url = git@github.com:x-team/wp-plugin-dev-lib.git
