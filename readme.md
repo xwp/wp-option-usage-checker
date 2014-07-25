@@ -10,7 +10,7 @@ Check for perilous usages of add_option()/update_option(). Dev plugin, not recom
 **Stable tag:** trunk (master)  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker)
+[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker) 
 
 ## Description ##
 
@@ -28,16 +28,14 @@ The `update_option()` has an unfortunate default behavior when attempting to upd
 
 This plugin helps guard against accidental autoloaded options by warning whenever `update_option()` is called for an option that doesn't already exist—one which hasn't been registered with `add_option()`. The best practice enforced here is to always call `add_option()` before calling `update_option()`, and thus to help explicitly indicate whether you want the option to be autoloaded or *not*.
 
-= Error Handling =
-
+### Error Handling ###
 The plugin can either report errors as PHP warnings or by throwing exceptions. If you have `WP_DEBUG` enabled, exceptions will be thrown by default. You can override this default behavior via the `option_usage_checker_throw_exceptions` filter:
 
 ```php
 add_filter( 'option_usage_checker_throw_exceptions', '__return_true' ); // always throw exceptions
 ```
 
-= Changing Bucket Size Limit =
-
+### Changing Bucket Size Limit ###
 By default, the cache bucket size limit used is 1MB, which is the default limit for Memcached. You can override this default with a constant:
 
 ```php
