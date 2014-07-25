@@ -11,7 +11,7 @@ Check for perilous usages of add_option()/update_option(). Dev plugin, not recom
 
 == Description ==
 
-The WordPress Options API is used extensively as a key/value store. There are some pitfalls about how to use the API that are easy to fall into, especially when using the popular Memcached Object Cache Plugin.
+The WordPress Options API is used extensively as a key/value store. There are some pitfalls about how to use the API that are easy to fall into, especially when using the popular [Memcached Object Cache plugin](https://wordpress.org/plugins/memcached/).
 
 Memcached has a limit on the bucket size: by default it doesn't let you cache values large than 1MB. On WordPress.com, it is part of the WordPress VIP code requirements to not [cache large values in options](http://vip.wordpress.com/documentation/code-review-what-we-look-for/#caching-large-values-in-options). This plugin will warn if attempting to store a value in an option that is larger than 1MB.
 
@@ -30,7 +30,7 @@ This plugin helps guard against accidental autoloaded options by warning wheneve
 The plugin can either report errors as PHP warnings or by throwing exceptions. If you have `WP_DEBUG` enabled, exceptions will be thrown by default. You can override this default behavior via the `option_usage_checker_throw_exceptions` filter:
 
 ```php
-add_filter( 'option_usage_checker_throw_exceptions', '__reutrn_true' ); // always throw exceptions
+add_filter( 'option_usage_checker_throw_exceptions', '__return_true' ); // always throw exceptions
 ```
 
 = Changing Bucket Size Limit =
