@@ -12,6 +12,7 @@ Check for perilous usages of add_option()/update_option(). Dev plugin, not recom
 
 ## Description ##
 
+[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker)
 ### Error Handling ###
 The plugin can either report errors as PHP warnings or by throwing exceptions. If you have `WP_DEBUG` enabled, exceptions will be thrown by default. You can override this default behavior via the `option_usage_checker_throw_exceptions` filter:
 
