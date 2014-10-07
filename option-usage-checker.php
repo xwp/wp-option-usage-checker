@@ -6,6 +6,7 @@
  * Author: X-Team WP
  * Author URI: http://x-team.com/wordpress/
  * License: GPLv2+
+ * Text Domain: option-usage-checker
  */
 
 class Option_Usage_Checker_Plugin {
