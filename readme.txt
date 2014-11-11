@@ -1,5 +1,5 @@
 === Option Usage Checker ===
-Contributors:      X-team, westonruter
+Contributors:      xwp, westonruter
 Tags:              options, transients, memcached, object-cache
 Requires at least: 3.9
 Tested up to:      trunk

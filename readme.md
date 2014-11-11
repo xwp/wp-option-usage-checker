@@ -3,14 +3,14 @@
 
 Check for perilous usages of add_option()/update_option(). Dev plugin, not recommended for production. Specifically useful with Memcached Object Cache
 
-**Contributors:** [x-team](http://profiles.wordpress.org/x-team), [westonruter](http://profiles.wordpress.org/westonruter)  
+**Contributors:** [xwp](http://profiles.wordpress.org/xwp), [westonruter](http://profiles.wordpress.org/westonruter)  
 **Tags:** [options](http://wordpress.org/plugins/tags/options), [transients](http://wordpress.org/plugins/tags/transients), [memcached](http://wordpress.org/plugins/tags/memcached), [object-cache](http://wordpress.org/plugins/tags/object-cache)  
 **Requires at least:** 3.9  
 **Tested up to:** trunk  
 **Stable tag:** trunk (master)  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker) 
+[![Build Status](https://travis-ci.org/xwp/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/xwp/wp-option-usage-checker) 
 
 ## Description ##
 

@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Option Usage Checker
- * Description: Check for perilous usages of add_option() and update_option(). Dev plugin, not recommended for production. <a href="https://github.com/x-team/wp-option-usage-checker#readme">Read more</a>.
+ * Description: Check for perilous usages of add_option() and update_option(). Dev plugin, not recommended for production. <a href="https://github.com/xwp/wp-option-usage-checker#readme">Read more</a>.
  * Version: 0.3
- * Author: X-Team WP
- * Author URI: http://x-team.com/wordpress/
+ * Author: XWP WP
+ * Author URI: https://xwp.co/
  * License: GPLv2+
  * Text Domain: option-usage-checker
  */
