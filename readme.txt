@@ -1,5 +1,5 @@
 === Option Usage Checker ===
-Contributors:      X-team, westonruter
+Contributors:      xwp, westonruter
 Tags:              options, transients, memcached, object-cache
 Requires at least: 3.9
 Tested up to:      trunk
@@ -10,6 +10,8 @@ License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Check for perilous usages of add_option()/update_option(). Dev plugin, not recommended for production. Specifically useful with Memcached Object Cache
 
 == Description ==
+
+**WARNING:** The premise of this plugin is wrong when developing for WordPress.com VIP. _All_ options on WordPress.com get autoloaded, even ones marked as `autoload=no`. Therefore nothing that grows over time should ever be stored in options. See also [Widget Posts](https://github.com/xwp/wp-customize-widgets-plus/blob/master/php/class-widget-posts.php), [Options Size Limit](https://vip.wordpress.com/documentation/options-cache/), [Incorporate WordPress.com's specific approach to caching options](https://github.com/Automattic/vip-quickstart/issues/430).
 
 The WordPress Options API is used extensively as a key/value store. There are some pitfalls about how to use the API that are easy to fall into, especially when using the popular [Memcached Object Cache plugin](https://wordpress.org/plugins/memcached/).
 
