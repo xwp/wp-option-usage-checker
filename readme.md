@@ -12,7 +12,7 @@ Check for perilous usages of add_option()/update_option(). Dev plugin, not recom
 **Stable tag:** trunk (master)  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/x-team/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/x-team/wp-option-usage-checker) 
+[![Build Status](https://travis-ci.org/xwp/wp-option-usage-checker.png?branch=master)](https://travis-ci.org/xwp/wp-option-usage-checker) 
 
 ## Description ##
 
